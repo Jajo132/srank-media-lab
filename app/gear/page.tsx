@@ -1,6 +1,14 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Camera & FPV Gear",
+  description:
+    "Explore the camera gear, FPV travel setup, protection cases, and filmmaking tools used by Srank Media Lab.",
+  alternates: {
+    canonical: "https://srankmedialab.nl/gear",
+  },
+};
 
 const gearItems = [
   {
@@ -8,7 +16,7 @@ const gearItems = [
     description:
       "A practical FPV backpack for carrying drones, batteries, goggles, controllers, and travel essentials in one setup.",
     image: "/gear/backpackv2.jpg",
-    link: "https://iflight-rc.eu/products/fpv-drone-backpack-v2?bg_ref=FV8VgDW8er",
+    link: "https://your-affiliate-link.com/backpackv2",
     tag: "🎒 Travel Setup",
     vibe: "Carry & Transport",
     backgroundImage:
@@ -19,7 +27,7 @@ const gearItems = [
     description:
       "Action camera used for behind-the-scenes content, extra angles, and cinematic support footage during shoots.",
     image: "/gear/osmoaction4.jpg",
-    link: "https://store.dji.com/nl/product/osmo-action-4?utm_source%5B%5D=google&utm_source%5B%5D=google&utm_medium%5B%5D=cpc&utm_medium%5B%5D=cpc&utm_campaign=ec_en_oa_allpn_conversion_google-search_purchase_store_eu_alwayson&utm_content=795278030765&utm_term=23268192936_194040915722_795278030765&gad_source=1&gad_campaignid=23268192936&gbraid=0AAAAADO_H_dPEd3Gfhq1HuVWehmLgfF_j&gclid=Cj0KCQjw-pHPBhCdARIsAHXYWP_j83wkuLYjtLKL59eMcCrgZq63c6Ad_cWWg62u0J-2L3OqLXDafAUaAiG-EALw_wcB&vid=144651",
+    link: "https://your-affiliate-link.com/osmoaction4",
     tag: "📷 BTS Camera",
     vibe: "Action & Content",
     backgroundImage:
@@ -30,7 +38,7 @@ const gearItems = [
     description:
       "Hard case for protecting FPV gear during travel, transport, and on-location shoots with a more secure setup.",
     image: "/gear/procase580.jpg",
-    link: "https://iflight-rc.eu/products/iflight-europe-pro-case?bg_ref=FV8VgDW8er",
+    link: "https://your-affiliate-link.com/procase580",
     tag: "🧳 Hard Protection",
     vibe: "Protection & Storage",
     backgroundImage:
@@ -85,11 +93,10 @@ export default function GearPage() {
               key={item.name}
               className="group overflow-hidden rounded-[28px] bg-white shadow-xl transition hover:shadow-2xl"
             >
-              {/* TOP IMAGE */}
               <div className="relative overflow-hidden">
                 <img
                   src={item.image}
-                  alt={item.name}
+                  alt={`${item.name} in the Srank Media Lab gear setup`}
                   className="h-72 w-full object-cover transition duration-500 group-hover:scale-105"
                 />
 
@@ -98,7 +105,6 @@ export default function GearPage() {
                 </div>
               </div>
 
-              {/* BACKGROUND SECTION */}
               <div
                 className="relative brightness-110"
                 style={{

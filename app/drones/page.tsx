@@ -1,6 +1,14 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "FPV Drone Fleet",
+  description:
+    "Explore the FPV drone fleet used by Srank Media Lab for cinematic flights, long-range lines, indoor flow, and action chase shots.",
+  alternates: {
+    canonical: "https://srankmedialab.nl/drones",
+  },
+};
 
 const drones = [
   {
@@ -8,7 +16,7 @@ const drones = [
     description:
       "Powerful FPV drone for fast cinematic shots, freestyle motion, and dynamic outdoor filming. Perfect for drift chasing.",
     image: "/drones/nazgulf6.jpg",
-    link: "https://iflight-rc.eu/products/nazgul-evoque-f6-v2-o4-gps?bg_ref=FV8VgDW8er",
+    link: "https://your-affiliate-link.com/nazgul",
     tag: "🔥 Best for Action",
     vibe: "Drift Chase",
     backgroundImage:
@@ -19,18 +27,18 @@ const drones = [
     description:
       "Long-range drone designed for landscapes, mountains, and epic cinematic aerial shots.",
     image: "/drones/helion10.jpg",
-    link: "https://iflight-rc.eu/products/helion-10-o4-6s-hd?bg_ref=FV8VgDW8er",
+    link: "https://your-affiliate-link.com/helion",
     tag: "🌍 Long Range",
     vibe: "Mountain Range",
     backgroundImage:
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    name: "Darkstar 22",
+    name: "Darkstar 2.2",
     description:
       "Compact cinewhoop ideal for indoor flying, tight spaces, and smooth cinematic flow shots.",
     image: "/drones/darkstar22.jpg",
-    link: "https://geprc.com/product/geprc-darkstar22-o4-pro-cinewhoop-quadcopter/",
+    link: "https://your-affiliate-link.com/darkstar",
     tag: "🎬 Indoor Cinematic",
     vibe: "Indoor Flow",
     backgroundImage:
@@ -41,7 +49,6 @@ const drones = [
 export default function DronesPage() {
   return (
     <main className="min-h-screen bg-[#f5f5f2] text-black">
-      {/* HEADER */}
       <header className="border-b border-black/10 bg-[#f5f5f2]/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <Link href="/" className="leading-none">
@@ -50,14 +57,22 @@ export default function DronesPage() {
           </Link>
 
           <nav className="hidden gap-8 md:flex">
-            <Link href="/" className="text-sm uppercase tracking-[0.2em]">Home</Link>
-            <Link href="/drones" className="text-sm uppercase tracking-[0.2em]">Drones</Link>
-            <Link href="/gear" className="text-sm uppercase tracking-[0.2em]">Gear</Link>
+            <Link href="/" className="text-sm uppercase tracking-[0.2em]">
+              Home
+            </Link>
+            <Link href="/drones" className="text-sm uppercase tracking-[0.2em]">
+              Drones
+            </Link>
+            <Link href="/gear" className="text-sm uppercase tracking-[0.2em]">
+              Gear
+            </Link>
+            <Link href="/contact" className="text-sm uppercase tracking-[0.2em]">
+              Contact
+            </Link>
           </nav>
         </div>
       </header>
 
-      {/* CONTENT */}
       <section className="mx-auto max-w-7xl px-6 py-20">
         <p className="text-sm uppercase tracking-[0.35em] text-gray-500">
           Srank Media Lab
@@ -72,18 +87,16 @@ export default function DronesPage() {
           projects, and high-end visual production.
         </p>
 
-        {/* CARDS */}
         <div className="mt-16 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
           {drones.map((drone) => (
             <div
               key={drone.name}
               className="group overflow-hidden rounded-[28px] bg-white shadow-xl transition hover:shadow-2xl"
             >
-              {/* TOP IMAGE */}
               <div className="relative overflow-hidden">
                 <img
                   src={drone.image}
-                  alt={drone.name}
+                  alt={`${drone.name} used by Srank Media Lab for cinematic FPV filming`}
                   className="h-72 w-full object-cover transition duration-500 group-hover:scale-105"
                 />
 
@@ -92,7 +105,6 @@ export default function DronesPage() {
                 </div>
               </div>
 
-              {/* BACKGROUND SECTION (FIXED VISIBILITY) */}
               <div
                 className="relative brightness-110"
                 style={{
@@ -106,9 +118,7 @@ export default function DronesPage() {
                     {drone.vibe}
                   </p>
 
-                  <h2 className="mt-2 text-2xl font-semibold">
-                    {drone.name}
-                  </h2>
+                  <h2 className="mt-2 text-2xl font-semibold">{drone.name}</h2>
 
                   <p className="mt-4 text-base leading-7 text-white/90">
                     {drone.description}

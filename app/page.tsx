@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 import { Menu, X, ChevronUp } from "lucide-react";
 import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 
+export const metadata = {
+  title: "Home",
+  description:
+    "Cinematic FPV visuals, drone storytelling, commercial content, and brand collaborations by Srank Media Lab.",
+};
+
 const featuredItems = [
   {
     title: "FPV Storytelling",
