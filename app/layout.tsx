@@ -9,8 +9,8 @@ export const metadata: Metadata = {
     template: "%s | Srank Media Lab",
   },
 
-  description:
-    "Srank Media Lab creates cinematic FPV drone videos, commercial visuals, social media content, and dynamic storytelling for brands, events, and creative campaigns.",
+ description:
+  "Srank Media Lab creates cinematic FPV drone videos, commercial visuals, and high-end storytelling for brands, events, products, and modern digital campaigns.",
 
   keywords: [
     "Srank Media Lab",
