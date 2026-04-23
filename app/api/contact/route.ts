@@ -4,62 +4,53 @@ import nodemailer from "nodemailer";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, company, email, subject, message } = body;
 
-    if (!name || !email || !subject || !message) {
-      return NextResponse.json(
-        { success: false, message: "Please fill in all required fields." },
-        { status: 400 }
-      );
-    }
+    const {
+      name,
+      email,
+      subject,
+      message,
+    } = body;
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: Number(process.env.SMTP_PORT) === 465,
+      port: Number(process.env.SMTP_PORT),
+      secure: false,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
     });
 
-    await transporter.verify();
-console.log("SMTP connection is ready");
-
-    const mailTo = process.env.CONTACT_TO || process.env.SMTP_USER;
+    // =====================================
+    // EMAIL SENT TO YOU
+    // =====================================
 
     await transporter.sendMail({
-      from: `"Srank Media Lab Contact Form" <${process.env.SMTP_USER}>`,
-      to: mailTo,
+      from: process.env.SMTP_USER,
+      to: process.env.CONTACT_TO,
       replyTo: email,
-      subject: `New Contact Form Message: ${subject}`,
+      subject: `New Contact Form Message - ${subject}`,
+
       html: `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-          <h2>New Contact Form Message</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Company:</strong> ${company || "-"}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Subject:</strong> ${subject}</p>
-          <hr />
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, "<br/>")}</p>
+        <div style="font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5;">
+          <div style="max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 12px;">
+            <h1 style="margin-bottom: 20px;">New Message</h1>
+
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Subject:</strong> ${subject}</p>
+
+            <div style="margin-top: 20px; padding: 20px; background: #f2f2f2; border-radius: 8px;">
+              <p style="white-space: pre-wrap;">${message}</p>
+            </div>
+          </div>
         </div>
       `,
     });
 
-    return NextResponse.json({
-      success: true,
-      message: "Message sent successfully.",
-    });
-  } catch (error) {
-    console.error("Contact form error:", error);
+    // =====================================
+    // AUTO REPLY TO VISITOR
+    // =====================================
 
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Something went wrong while sending the message.",
-      },
-      { status: 500 }
-    );
-  }
 }
