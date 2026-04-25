@@ -65,7 +65,7 @@ export async function POST(req: Request) {
             <div style="padding: 40px;">
               <div style="margin-bottom: 24px;">
                 <img
-                  src="https://srankmedialab.nl/favicon.ico"
+                  src="https://srankmedialab.nl/og-image.jpg"
                   alt="Srank Media Lab Logo"
                   width="72"
                   height="72"
