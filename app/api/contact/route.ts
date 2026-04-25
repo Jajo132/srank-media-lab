@@ -76,14 +76,7 @@ export async function POST(req: Request) {
   "
 />
 
-                <h1 style="font-size: 32px; margin-bottom: 10px; letter-spacing: 2px;">
-                  SRANK MEDIA LAB
-                </h1>
-              </div>
-
-              <p style="color: #9ca3af; margin-bottom: 30px;">
-                Cinematic FPV • Drone Storytelling • Brand Visuals
-              </p>
+                
 
               <h2 style="font-size: 24px; margin-bottom: 20px;">
                 Hey ${name},
