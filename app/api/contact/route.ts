@@ -67,10 +67,14 @@ export async function POST(req: Request) {
                 <img
                   src="https://srankmedialab.nl/og-image.jpg"
                   alt="Srank Media Lab Logo"
-                  width="72"
-                  height="72"
-                  style="display:block; margin-bottom:20px; border-radius:16px;"
-                />
+                  style="
+    width: 100%;
+    max-width: 520px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    display: block;
+  "
+/>
 
                 <h1 style="font-size: 32px; margin-bottom: 10px; letter-spacing: 2px;">
                   SRANK MEDIA LAB
